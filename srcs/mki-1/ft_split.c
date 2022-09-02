@@ -64,8 +64,7 @@ static size_t	ft_fill(char **ret, char const *s, char c)
 			s++;
 		if (*s && *s != c)
 		{
-			ret[i] = (char *)malloc(ft_word_length(s, c) + 1);
-			if (!ret[i])
+			if (!(ret[i] = (char *)malloc(ft_word_length(s, c) + 1)))
 				return (ft_isfree(ret));
 			while (*s && *s != c)
 				ret[i][j++] = (char)*s++;
@@ -76,7 +75,7 @@ static size_t	ft_fill(char **ret, char const *s, char c)
 	return (0);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**ret;
 	size_t	count;
@@ -84,8 +83,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	count = ft_words_count(s, c);
-	ret = (char **)malloc(sizeof(char *) * (count + 1));
-	if (!ret)
+	if (!(ret = (char **)malloc(sizeof(char *) * (count + 1))))
 		return (NULL);
 	if (ft_fill(ret, s, c))
 		return (NULL);

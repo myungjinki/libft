@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	return ((9 <= c && c <= 13) || c == ' ');
 }
 
-int	ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	long long	ret;
 	int			sign;

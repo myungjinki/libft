@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_issep.c                                         :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mki <mki@student.42seoul.fr>               +#+  +:+       +#+        */
+/*   By: mki <mki@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/23 05:44:13 by mki               #+#    #+#             */
-/*   Updated: 2021/02/23 05:57:27 by mki              ###   ########.fr       */
+/*   Created: 2020/10/13 21:39:42 by mki               #+#    #+#             */
+/*   Updated: 2020/10/13 21:42:21 by mki              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_issep(char c, char *sep)
-{
-	int		i;
+#include "libft.h"
 
-	i = 0;
-	while (sep[i])
+int		ft_lstsize(t_list *lst)
+{
+	int		ret;
+
+	ret = 0;
+	while (lst)
 	{
-		if (c == sep[i])
-			return (1);
-		i++;
+		ret++;
+		lst = lst->next;
 	}
-	return (0);
+	return (ret);
 }

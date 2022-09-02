@@ -1,16 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mki <mki@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 19:24:31 by mki               #+#    #+#             */
-/*   Updated: 2020/10/06 19:24:55 by mki              ###   ########.fr       */
+/*   Created: 2020/10/13 20:28:37 by mki               #+#    #+#             */
+/*   Updated: 2020/10/13 21:15:50 by mki              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "libft.h"
+
+t_list	*ft_lstnew(void *content)
 {
-	return ('0' <= c && c <= '9');
+	t_list	*node;
+
+	if (!(node = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

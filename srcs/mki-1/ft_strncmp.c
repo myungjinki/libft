@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mki <mki@student.42seoul.fr>               +#+  +:+       +#+        */
+/*   By: mki <mki@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 22:45:17 by mki               #+#    #+#             */
-/*   Updated: 2020/10/22 03:15:18 by mki              ###   ########.fr       */
+/*   Created: 2020/10/08 20:50:14 by mki               #+#    #+#             */
+/*   Updated: 2020/10/08 21:57:50 by mki              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*ret;
-	char	*tmp;
+	size_t	len_s1;
+	size_t	len_s2;
 	size_t	len;
 
-	len = 0;
-	while (s1[len])
-		len++;
-	ret = (char *)malloc(len + 1);
-	if (!ret)
-		return (NULL);
-	tmp = ret;
-	while (*s1)
-		*tmp++ = *s1++;
-	*tmp = '\0';
-	return (ret);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	len = (len_s1 <= len_s2) ? len_s1 + 1 : len_s2 + 1;
+	len = (n <= len) ? n : len;
+	return (ft_memcmp(s1, s2, len));
 }

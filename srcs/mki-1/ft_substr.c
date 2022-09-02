@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mki <mki@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 22:29:17 by mki               #+#    #+#             */
-/*   Updated: 2020/10/11 21:18:28 by mki              ###   ########.fr       */
+/*   Created: 2020/10/10 09:19:16 by mki               #+#    #+#             */
+/*   Updated: 2020/10/12 22:02:08 by mki              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	void	*ret;
-	size_t	len;
+	char	*ret;
 
-	if (count && size)
-	{
-		len = count * size;
-		if (len % size != 0 || len / size != count)
-			return (NULL);
-	}
-	else
-		len = 1;
-	ret = (void *)malloc(len);
-	if (!ret)
+	if (!s)
 		return (NULL);
-	return (ft_memset(ret, 0, len));
+	if (!(ret = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	ft_memset(ret, 0, len + 1);
+	if (start >= ft_strlen(s))
+		return (ret);
+	ft_memmove(ret, s + start, len);
+	return (ret);
 }

@@ -33,15 +33,14 @@ static size_t	ft_numlen(int n)
 	return (ret);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*ret;
 	size_t	numlen;
 	size_t	sign;
 
 	numlen = ft_numlen(n);
-	ret = (char *)malloc(sizeof(char) * (numlen + 1));
-	if (!ret)
+	if (!(ret = (char *)malloc(sizeof(char) * (numlen + 1))))
 		return (NULL);
 	ret[numlen] = '\0';
 	sign = 1;

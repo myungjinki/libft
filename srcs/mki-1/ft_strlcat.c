@@ -29,7 +29,7 @@ static void	ft_strncat(char *dst, const char *src, size_t nb)
 	dst[j + i] = 0;
 }
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	len_src;
 	size_t	len_dst;
